@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<!--
+    Strata by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>Strata by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/client/assets/css/main.css" />
+</head>
+
+<body class="is-preload">
+
+    <!-- Header -->
+    <header id="header">
+        <div class="inner">
+            <h1>Chat InGame</h1>
+            <div id="chat-text" style="width:500px;height:800px;">
+                <div>Hello!</div>
+            </div>
+            <form id="chat-form">
+                <input id="chat-input" type="text" style="width:500px"></input>
+            </form>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <div id="main">
+
+        <!-- One -->
+        <section id="one">
+            <header class="major">
+                <h2>Undercover     <button onclick="changeName()">Changer de pseudo</button></h2>     
+        </header>
+        </section>
+    </div>
+
+
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+
+
+
+    <!-- Main Script -->
+    <script>
+        var chatText = document.getElementById('chat-text');
+        var chatInput = document.getElementById('chat-input');
+        var chatForm = document.getElementById('chat-form');
+        var socket = io();
+
+
+        socket.on('addToChat', function(data) {
+            chatText.innerHTML += '<div>' + data + '</div>';
+        });
+        socket.on('evalAnswer', function(data) {
+            console.log(data);
+        });
+
+        //Change le pseudo
+        function changeName() {
+            var person = prompt("Entre ton pseudo:", "");
+            while(person == null || person == ""){
+                if (!person == "" || !person == null) { 
+                    break;             
+                } else {
+                    person = prompt("Entre ton pseudo:", "");
+                }
+            }
+            socket.emit('sendNickname', person);
+        }
+
+        //Envoie message au chat
+        chatForm.onsubmit = function(e) {
+            e.preventDefault();
+            if (chatInput.value[0] === '/')
+                socket.emit('evalServer', chatInput.value.slice(1));
+            else
+                socket.emit('sendMsgToServer', chatInput.value);
+            chatInput.value = '';
+        }
+
+    </script>
+
+</body>
+
+</html>
