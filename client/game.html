@@ -1,49 +1,93 @@
 <!DOCTYPE HTML>
-<!--
-    Strata by HTML5 UP
-    html5up.net | @ajlkn
-    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
-
-<head>
-    <title>Strata by HTML5 UP</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="/client/assets/css/main.css" />
-</head>
-
-<body class="is-preload">
-
-    <!-- Header -->
-    <header id="header">
-        <div class="inner">
-            <h1>Chat InGame</h1>
-            <div id="chat-text" style="width:500px;height:800px;">
-                <div>Hello!</div>
+  <head>
+      <title>Undercover</title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+      <link rel="stylesheet" href="/client/assets/css/main.css"/>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    </head>
+  <body>
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-md-9 mr-0 px-9" href="#">Undercover</a>
+      <h5 class="text-white" disabled>Chat InGame</h5> 
+      <button type="button" class="btn btn-warning" onclick="changeName()">Changer de Pseudo</button>
+      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Comment jouer ?</button>
+    </nav>
+    <div class="container-fluid">
+      <!-- The Modal -->
+      <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+          <div class="modal-content">
+          
+            <!-- Modal body -->
+            <div class="modal-body bg-dark text-white">
+              <h3>Règle du jeu</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu velit ultricies, consectetur mi pharetra, lobortis augue. Duis congue at eros at sodales. Suspendisse in magna viverra nisi eleifend facilisis ac at neque. Nunc neque sem, hendrerit quis mauris eu, congue suscipit est. Quisque tristique tincidunt augue quis venenatis. In eget est a nulla dictum bibendum. Etiam in orci quis quam luctus feugiat vitae ac quam. Etiam ornare placerat massa in malesuada.
+                Quisque a dapibus nunc, non rhoncus neque. Etiam hendrerit neque vel magna elementum varius. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lectus leo, euismod ut sodales nec, fringilla et dui. Sed porttitor lectus mauris, vel semper tellus hendrerit eu. Donec suscipit nec dui a aliquam. Duis gravida tristique odio vel porta. Phasellus lectus ligula, placerat pulvinar rutrum id, viverra sed dolor. Duis eu quam tortor. Nunc pretium justo metus. Morbi tristique metus sem, eu aliquet odio ornare quis. Suspendisse vulputate congue dui, eu commodo turpis sagittis nec. Aliquam semper mauris malesuada elementum rutrum. Pellentesque pulvinar velit enim, id viverra est pretium eu. Cras enim odio, auctor non nisl sed, lacinia tempor ante. Mauris eget tincidunt orci.
+              </p>
             </div>
-            <form id="chat-form">
-                <input id="chat-input" type="text" style="width:500px"></input>
-            </form>
+            
+            <!-- Modal footer -->
+            <div class="modal-footer bg-dark text-white">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            
+          </div>
         </div>
-    </header>
+      </div>
+      <div class="row">
+        <nav id="contentid" class="col-md-9 d-md-block content collapse">
+          <div class="content-sticky pt-9">
+            <h2>Mon Mot: </h2>
+            <hr class="hr-line">
+            <!--card-->
+            <div class="row">
+              <div class="col-sm-3">
+                <div class="card card-custom">
+                  <div class="card-body text-dark card-body-custom">
+                    <h5 class="card-title">**User**</h5>
+                    <hr class="hr-line-card">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item lgi">Mot 1</li>
+                      <li class="list-group-item lgi">Mot 2</li>
+                      <li class="list-group-item lgi">Mot 3</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            <!--end-card-->
 
-    <!-- Main -->
-    <div id="main">
+          </div>
+        </nav>
+        <main role="main" class="col-md-3 ml-sm-auto px-md-4">
+          <div class="content-sticky pt-3">
+            <h3>Bienvenue sur Undercover</h3>
+            <form id="chat-form">
+              <div class="main-chat-container">
+                <div class="chat-container mx-3" id="chat-text">
+                </div>
+              </div>
+              <div class="input-group my-3">
+                <input type="text" name="hidden" class="form-control" id="chat-input" autocomplete='off' placeholder="send nudes"></input>
+                <div class="input-group-append">
+                  <button class="btn btn-outline-success" type="submit" id="button-addon2">Enter</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </main>
+      </div>
 
-        <!-- One -->
-        <section id="one">
-            <header class="major">
-                <h2>Undercover     <button onclick="changeName()">Changer de pseudo</button></h2>     
-        </header>
-        </section>
     </div>
-
-
     <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-
-
-
     <!-- Main Script -->
     <script>
         var chatText = document.getElementById('chat-text');
@@ -51,9 +95,9 @@
         var chatForm = document.getElementById('chat-form');
         var socket = io();
 
-
         socket.on('addToChat', function(data) {
-            chatText.innerHTML += '<div>' + data + '</div>';
+            chatText.innerHTML += '<div class="chat-text"><img class="avatar" src="/client/assets/img/icognito.png">' + data + '</div>';
+            chatText.scrollTop = chatText.scrollHeight;
         });
         socket.on('evalAnswer', function(data) {
             console.log(data);
@@ -81,9 +125,6 @@
                 socket.emit('sendMsgToServer', chatInput.value);
             chatInput.value = '';
         }
-
     </script>
-
-</body>
-
+  </body>
 </html>

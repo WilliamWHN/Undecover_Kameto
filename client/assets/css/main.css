@@ -1,0 +1,156 @@
+body {
+  font-size: .875rem;
+  background-color: #343a40 !important;
+  color: #fff !important;
+}
+
+/* Chat */
+*
+  box-sizing border-box
+
+.main-chat-container {
+  width: 400px;
+  margin: 0 auto;
+  border: solid 3px #ccc;
+  border-radius: 5px;
+  overflow: auto;
+}
+.chat-container {
+  height: 76vh;
+  overflow: auto;
+}
+.chat-text {
+  
+  padding: 10px;
+} 
+
+.datetime {
+  float: right;
+  color: #999;
+}
+
+.avatar {
+  float: left;
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+}
+      
+/*
+ * content
+ */
+
+.content {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100; /* Behind the navbar */
+  padding: 10px 0 0; /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+@media (max-width: 767.98px) {
+  .content {
+    top: 5rem;
+  }
+}
+
+.content-sticky {
+  position: relative;
+  top: 0px;
+  height: calc(95vh - 48px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+  .content-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+}
+
+.content .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+.content .nav-link .feather {
+  margin-right: 4px;
+  color: #999;
+}
+
+.content .nav-link.active {
+  color: #007bff;
+}
+
+.content .nav-link:hover .feather,
+.content .nav-link.active .feather {
+  color: inherit;
+}
+
+.content-heading {
+  font-size: .75rem;
+  text-transform: uppercase;
+}
+
+.card-custom {
+  border-color: #fff !important;
+  border-width: 10px !important;
+  border-radius: 5px !important;
+  color: #444;
+  margin-top: 20px !important;
+}
+
+.card-body-custom { 
+  padding: 0.6rem !important;
+}
+
+.hr-line {
+  height: 3px;
+  margin-top: 15px;
+  margin-bottom: 0px;
+  margin-left: 0px!important;
+  background-color: #FFF;
+}
+
+.hr-line-card {
+  height: 2px;
+  margin: 0px;
+  background-color: #007bff;
+}
+
+.lgi {
+  border-bottom: 1px solid #FFF !important;
+  font-weight: bold;
+}
+/*
+ * Navbar
+ */
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, .25);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+}
+
+.navbar .navbar-toggler {
+  top: .25rem;
+  right: 1rem;
+}
+
+.navbar .form-control {
+  padding: .75rem 1rem;
+  border-width: 0;
+  border-radius: 0;
+}
+
+.form-control {
+  margin: 0 auto;
+  margin-left: 10px;
+  float: none;
+}
